@@ -31,7 +31,7 @@ public class AICarController2 : MonoBehaviour
     public float brakePower;
 
     private float throttleInput;
-    public GameObject big;
+    public GameObject brakingZone;
     public GameObject bigBraking;
     public GameObject bigBraking2;
 
@@ -74,9 +74,9 @@ public class AICarController2 : MonoBehaviour
 
         // This controls the percentage of brake the AI car applies
         if(insideBraking){
-            if(bigBraking.transform.position == big.transform.position){
+            // 
+            if(bigBraking.transform.position == brakingZone.transform.position || bigBraking2.transform.position == brakingZone.transform.position){
                 throttleInput = -1f;
-                print(true);
             }else{
             throttleInput = -throttleInput * Mathf.Clamp01(currentSpeed / maxSpeed * 2f - 1f);
             }

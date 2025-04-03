@@ -14,7 +14,7 @@ public class BrakingAI2 : MonoBehaviour
         // Letting the AI car controller script know that the car is in the braking zone
         if(car){
 
-            car.big = gameObject;
+            car.brakingZone = gameObject;
             car.insideBraking = true;
             
         }
