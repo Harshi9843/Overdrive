@@ -6,31 +6,29 @@ using Vector3 = UnityEngine.Vector3;
 
 public class AICarController : MonoBehaviour
 {
-    private CarManager carManager;
-    private Rigidbody CarBody;  
+    CarManager carManager;
+    Rigidbody CarBody;  
 
-    public WheelCollider[] wheel_colliders;
-    public Transform[] wheel_meshes;
+    [SerializeField] WheelCollider[] wheel_colliders;
+    [SerializeField] Transform[] wheel_meshes;
 
-    public WaypointManager waypointManager;
-    public List<Transform> waypoints;
+    [SerializeField] WaypointManager waypointManager;
+    [SerializeField] List<Transform> waypoints;
 
-    public int currentWaypoint;
-    public int switchWaypointDist;
+    [SerializeField] int currentWaypoint;
+    [SerializeField] int switchWaypointDist; 
 
-    float currentAngle; 
+    [SerializeField] float maxDownforce;
+    [SerializeField] float maxSpeed;
+    [SerializeField] float maxAngle;
 
-    public float maxDownforce = 500f;
-    public float maxSpeed = 100f;
+    [SerializeField] float motorPower;
+    float throttleInput;
+
     float currentSpeed;
-
-    public bool insideBraking;
-    public float maxAngle = 45f;
-
-    public float power;
-    public float brakePower;
-
-    private float throttleInput;
+    float currentAngle;
+    public bool insideBrakingZone;
+    [SerializeField] float brakePower;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -70,12 +68,12 @@ public class AICarController : MonoBehaviour
         throttleInput = Mathf.Clamp01(1f - Math.Abs(currentSpeed * 0.1f * currentAngle)/maxAngle);
 
         // This controls the percentage of brake the AI car applies
-        if(insideBraking){
+        if(insideBrakingZone){
             throttleInput = -throttleInput * Mathf.Clamp01(currentSpeed / maxSpeed * 2 - 1f);
         }
 
         // Calls a method from the car controller class with parameters specfic to this car, to give the car its functions
-        carManager.SetInputs(CarBody, throttleInput, currentAngle, power ,brakePower, wheel_colliders, wheel_meshes);
+        carManager.SetInputs(CarBody, throttleInput, currentAngle, motorPower ,brakePower, wheel_colliders, wheel_meshes);
 
         Debug.DrawRay(transform.position, waypoints[currentWaypoint].position - transform.position, Color.yellow);
 

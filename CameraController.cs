@@ -7,8 +7,8 @@ public class CameraController : MonoBehaviour
     public Transform playerCar;
     public Rigidbody carRB;
 
-    public Vector3 offset;
-    public float speed;
+    [SerializeField] Vector3 offset;
+    [SerializeField] float speed;
 
     // Update is called once per frame
     void FixedUpdate()

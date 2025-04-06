@@ -5,25 +5,23 @@ using System;
 
 public class PlayerCarInput : MonoBehaviour
 {
-    private Rigidbody playerCarBody;
-    private CarManager carManager;
+    Rigidbody playerCarBody;
+    CarManager carManager;
+    [SerializeField] WheelCollider[] colliders;
+    [SerializeField] Transform[] meshes;
 
-    public WheelCollider[] colliders;
-    public Transform[] meshes;
-
-    public float motorPower;
-    public float brakePower;
+    [SerializeField] float motorPower;
+    [SerializeField] float brakePower;
 
     float throttleInput;
     float steeringInput;
 
-    public AnimationCurve steeringRange;
+    [SerializeField] AnimationCurve steeringRange;
     float steerAngle;
 
-    public float maxSpeed; 
-    public float maxDownforce;
-    private float speedValue;
-    public float currentSpeed;
+    [SerializeField] float maxSpeed; 
+    [SerializeField] float maxDownforce;
+    [SerializeField] float currentSpeed;
     
     void Start() // Start is called once before the first execution of Update after the MonoBehaviour is created
     {   

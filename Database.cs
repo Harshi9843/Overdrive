@@ -5,7 +5,7 @@ using System.Text;
 
 public class LapTimesDB : MonoBehaviour
 {
-    private string databaseURL = "https://overdrive-ab49e-default-rtdb.europe-west1.firebasedatabase.app/";
+    string databaseURL = "https://overdrive-ab49e-default-rtdb.europe-west1.firebasedatabase.app/";
 
     public void SubmitLapTime(string playerName, float lapTime, string trackURL)
     {

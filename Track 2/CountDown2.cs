@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class Countdown2 : MonoBehaviour
 {
-
     public PlayerCarInput playerCar;
-    public AICarController2 AICar;
-    public LapManager lapManager;
+    [SerializeField] AICarController2 AICar;
+    [SerializeField] LapManager lapManager;
 
-    public TextMeshProUGUI countDownText;
+    [SerializeField] TextMeshProUGUI countDownText;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

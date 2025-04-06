@@ -1,32 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Xml.Serialization;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using System.Text;
 using SimpleJSON; 
 
 public class RecordManager : MonoBehaviour
 {
-    public Image image;
-    public TrackList trackList;
-    private int trackPointer;
+    [SerializeField] Image trackImage;
+    [SerializeField] TrackList trackList;
+    int trackPointer;
 
-    public TextMeshProUGUI trackName;
-    public TextMeshProUGUI playerName;
-    public TextMeshProUGUI recordTime;
+    [SerializeField] TextMeshProUGUI trackName;
+    [SerializeField] TextMeshProUGUI playerName;
+    [SerializeField] TextMeshProUGUI recordTime;
 
-    private string databaseURL = "https://overdrive-ab49e-default-rtdb.europe-west1.firebasedatabase.app/";
+    string databaseURL = "https://overdrive-ab49e-default-rtdb.europe-west1.firebasedatabase.app/";
 
     void Awake()
     {
         PlayerPrefs.SetInt("trackPointer", 0);
 
         trackPointer = PlayerPrefs.GetInt("trackPointer");
-        image.sprite = trackList.trackImages[trackPointer];
+        trackImage.sprite = trackList.trackImages[trackPointer];
         
         ChooseDB();
     }
@@ -35,7 +33,7 @@ public class RecordManager : MonoBehaviour
         if(trackPointer < trackList.trackImages.Length - 1){
             trackPointer++;
             PlayerPrefs.SetInt("trackPointer", trackPointer);
-            image.sprite = trackList.trackImages[trackPointer];
+            trackImage.sprite = trackList.trackImages[trackPointer];
             ChooseDB();
             SetTrackInfo();
         }
@@ -45,7 +43,7 @@ public class RecordManager : MonoBehaviour
         if(trackPointer > 0){
             trackPointer--;
             PlayerPrefs.SetInt("trackPointer", trackPointer);
-            image.sprite = trackList.trackImages[trackPointer];
+            trackImage.sprite = trackList.trackImages[trackPointer];
             ChooseDB();
             SetTrackInfo();
         }

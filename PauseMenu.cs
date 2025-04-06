@@ -1,14 +1,11 @@
-using NUnit.Framework.Constraints;
-using UnityEditor.SearchService;
 using UnityEngine;
-using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
     
-    public GameObject pausePanel;
-    private bool isPaused = false;
+    [SerializeField] GameObject pausePanel;
+    bool isPaused = false;
 
     void Update()
     {

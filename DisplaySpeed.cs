@@ -3,10 +3,10 @@ using UnityEngine;
 
 public class DisplaySpeed : MonoBehaviour
 {
-    public TextMeshProUGUI speed;
+    [SerializeField] TextMeshProUGUI speed;
     public Rigidbody playerCar;
 
-    public float currentSpeed;
+    float currentSpeed;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

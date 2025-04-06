@@ -3,8 +3,6 @@ using UnityEngine;
 public class BrakingAI : MonoBehaviour
 {
 
-    GameObject brakingZone;
-
     // Functions that runs when the AI car is in a braking zone
     private void OnTriggerEnter(Collider other)
     {
@@ -13,7 +11,7 @@ public class BrakingAI : MonoBehaviour
 
         // Letting the AI car controller script know that the car is in the braking zone
         if(car){
-            car.insideBraking = true;
+            car.insideBrakingZone = true;
             
         }
     }
@@ -26,7 +24,7 @@ public class BrakingAI : MonoBehaviour
         
         // Letting the AI car controller script know that the car is not in the braking zone 
         if(car){
-            car.insideBraking = false;
+            car.insideBrakingZone = false;
         }
     }
 }

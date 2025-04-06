@@ -6,7 +6,6 @@ using UnityEngine;
 // This class controls the main functions of every car in the game 
 public class CarManager : MonoBehaviour
 {
-
     float brakeInput; 
 
     // Public funciton that is accessed by other classes to give a car its movement functions

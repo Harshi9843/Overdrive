@@ -5,27 +5,27 @@ using UnityEngine.UI;
 
 public class TrackManager : MonoBehaviour
 {
-    public Image image;
-    public TrackList trackList;
-    private int trackPointer;
+    [SerializeField] Image trackImage;
+    [SerializeField] TrackList trackList;
+    int trackPointer;
 
-    public TextMeshProUGUI trackName;
-    public TextMeshProUGUI trackDistance;
-    public TextMeshProUGUI trackSpeed;
+    [SerializeField] TextMeshProUGUI trackName;
+    [SerializeField] TextMeshProUGUI trackDistance;
+    [SerializeField] TextMeshProUGUI trackSpeed;
 
     void Awake()
     {
         PlayerPrefs.SetInt("trackPointer", 0);
 
         trackPointer = PlayerPrefs.GetInt("trackPointer");
-        image.sprite = trackList.trackImages[trackPointer];
+        trackImage.sprite = trackList.trackImages[trackPointer];
     }
 
     public void rightArrow(){
         if(trackPointer < trackList.trackImages.Length - 1){
             trackPointer++;
             PlayerPrefs.SetInt("trackPointer", trackPointer);
-            image.sprite = trackList.trackImages[trackPointer];
+            trackImage.sprite = trackList.trackImages[trackPointer];
             SetTrackInfo();
         }
     }
@@ -34,7 +34,7 @@ public class TrackManager : MonoBehaviour
         if(trackPointer > 0){
             trackPointer--;
             PlayerPrefs.SetInt("trackPointer", trackPointer);
-            image.sprite = trackList.trackImages[trackPointer];
+            trackImage.sprite = trackList.trackImages[trackPointer];
             SetTrackInfo();
         }
     }

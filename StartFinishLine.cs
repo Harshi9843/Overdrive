@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class StartFinishLine : MonoBehaviour
 {
-    public LapManager lapManager;
+    [SerializeField] LapManager lapManager;
 
     private void OnTriggerEnter(Collider other)
     {

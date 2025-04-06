@@ -9,17 +9,18 @@ using UnityEngine.UI;
 public class LapManager : MonoBehaviour
 {
 
-    public TextMeshProUGUI lapTimerText;
-    public TextMeshProUGUI lapCounterText;
+    [SerializeField] TextMeshProUGUI lapTimerText;
+    [SerializeField] TextMeshProUGUI lapCounterText;
 
     public int playerLaps;
-    public float playerLapTime;
-    public float totalSessionTime;
+    float playerLapTime;
+    float totalSessionTime;
 
     public int AILaps;
     public bool isAIFinished = false;
 
-    private string activeTrack;
+    string activeTrack;
+
 
     void Update()
     {

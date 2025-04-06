@@ -6,10 +6,10 @@ public class Countdown : MonoBehaviour
 {
 
     public PlayerCarInput playerCar;
-    public AICarController AICar;
-    public LapManager lapManager;
+    [SerializeField] AICarController AICar;
+    [SerializeField] LapManager lapManager;
 
-    public TextMeshProUGUI countDownText;
+    [SerializeField] TextMeshProUGUI countDownText;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
