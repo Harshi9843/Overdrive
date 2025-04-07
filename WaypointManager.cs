@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class WaypointManager : MonoBehaviour
 {
-
     public List<Transform> waypoints;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

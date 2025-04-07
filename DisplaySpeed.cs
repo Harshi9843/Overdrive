@@ -8,7 +8,7 @@ public class DisplaySpeed : MonoBehaviour
 
     float currentSpeed;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    // Start is called once the game objects are loaded, and once before the first execution of Update 
     void Start()
     {
         speed = gameObject.GetComponent<TextMeshProUGUI>();
@@ -17,6 +17,7 @@ public class DisplaySpeed : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Getting speed of car and displaying it
         currentSpeed = playerCar.linearVelocity.magnitude;
         speed.text = Mathf.Round(currentSpeed).ToString();
     }

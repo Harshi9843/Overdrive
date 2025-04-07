@@ -42,20 +42,10 @@ public class FinishScreenManager : MonoBehaviour
         }
         
         // Displaying fastest lap time and total session time 
-        fastestLapText.text = "Fastest Lap: " + FormatTime(fastestLap);
-        sessionTimeText.text = "Total Session Time: " + FormatTime(totalSessionTime);
+        fastestLapText.text = "Fastest Lap: " + TimeFormatter.FormatLapTime(fastestLap);
+        sessionTimeText.text = "Total Session Time: " + TimeFormatter.FormatLapTime(totalSessionTime);
 
 
-    }
-
-    // This function is called to convert time
-    string FormatTime(float time){
-        
-        // Time in seconds is converted to minutes, seconds, and milliseconds 
-        int minutes = Mathf.FloorToInt(time / 60);
-        int seconds = Mathf.FloorToInt(time % 60); 
-        int milliseconds = Mathf.FloorToInt((time * 100) % 100); 
-        return string.Format("{0:00}:{1:00}.{2:00}", minutes, seconds, milliseconds);
     }
 
     // Function called when proceed button is clicked on the finish screen

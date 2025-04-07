@@ -23,7 +23,9 @@ public class PlayerCarInput : MonoBehaviour
     [SerializeField] float maxDownforce;
     [SerializeField] float currentSpeed;
     
-    void Start() // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    // Start is called once before the first execution of Update and after the game objects are loaded in
+    void Start() 
     {   
         // Getting car controller class to use its functions
         carManager = GetComponent<CarManager>();
@@ -32,7 +34,9 @@ public class PlayerCarInput : MonoBehaviour
         playerCarBody = gameObject.GetComponent<Rigidbody>();
     }
 
-    void Update() // Update is called once per frame
+
+    // Update is called once per frame
+    void Update()
     {   
         // Calulating speed of the car
         currentSpeed = playerCarBody.linearVelocity.magnitude;
@@ -48,6 +52,7 @@ public class PlayerCarInput : MonoBehaviour
         // Calling a function from the general car controller that gives the car movement, with parameters specific for this car
         carManager.SetInputs(playerCarBody, throttleInput, steerAngle , motorPower, brakePower, colliders, meshes);
     }
+
 
     // Fixed Update is called at regular intervals defined by the physics settings.
     // Doesn't depend on the frame rate
