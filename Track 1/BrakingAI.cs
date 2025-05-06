@@ -13,7 +13,7 @@ public class BrakingAI : MonoBehaviour
         if(car){
             car.insideBrakingZone = true;
             
-        }
+        } 
     }
 
     // Function that runs when the AI car is out of braking zone

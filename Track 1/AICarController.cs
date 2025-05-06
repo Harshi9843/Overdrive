@@ -6,29 +6,30 @@ using Vector3 = UnityEngine.Vector3;
 
 public class AICarController : MonoBehaviour
 {
-    CarManager carManager;
-    Rigidbody CarBody;  
+    protected CarManager carManager;
+    protected Rigidbody CarBody;  
 
-    [SerializeField] WheelCollider[] wheel_colliders;
-    [SerializeField] Transform[] wheel_meshes;
+    [SerializeField] protected WheelCollider[] wheel_colliders;
+    [SerializeField] protected Transform[] wheel_meshes;
 
-    [SerializeField] WaypointManager waypointManager;
-    [SerializeField] List<Transform> waypoints;
+    [SerializeField] protected WaypointManager waypointManager;
+    [SerializeField] protected List<Transform> waypoints;
 
-    [SerializeField] int currentWaypoint;
-    [SerializeField] int switchWaypointDist; 
+    [SerializeField] protected int currentWaypoint;
+    [SerializeField] protected int switchWaypointDist; 
 
-    [SerializeField] float maxDownforce;
-    [SerializeField] float maxSpeed;
-    [SerializeField] float maxAngle;
+    [SerializeField] protected float maxDownforce;
+    [SerializeField] protected float maxSpeed;
+    [SerializeField] protected float maxAngle;
 
-    [SerializeField] float motorPower;
-    float throttleInput;
+    [SerializeField] protected float motorPower;
+    protected float throttleInput;
 
-    float currentSpeed;
-    float currentAngle;
+    protected float currentSpeed;
+    protected float currentAngle;
+    
     public bool insideBrakingZone;
-    [SerializeField] float brakePower;
+    [SerializeField] protected float brakePower;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

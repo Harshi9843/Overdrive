@@ -2,12 +2,12 @@ using UnityEngine;
 
 public class SpawnCar2 : MonoBehaviour
 {
-    private int carPointer;
     [SerializeField] CarList carList;
-    
     [SerializeField] CameraController cameraController; 
     [SerializeField] Countdown2 countdown;
     [SerializeField] DisplaySpeed displaySpeed;
+
+    int carPointer;
 
     // Function is called before any game objects are loaded in
     void Awake()
